@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- font awesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div id="box">
+        <div id="inputbox">
+            <input id="userInput" type="text" placeholder="enter city name">
+            <button onclick="getWeatherDetails()"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div id="result">
+        
+        </div>
+    </div>
+
+</body>
+<script>
+     const getWeatherDetails= async () =>{
+        console.log(userInput.value);
+        if(userInput.value){
+             const response =await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userInput.value}&appid=8dd4292ff7ea77ff213ff883d3b3eac0&units=metric`)
+             console.log(response);
+             if(response.status==200){
+               const weatherDetails =await response.json()
+               console.log(weatherDetails);
+            //    
+    // weather image icons
+    const weatherCondition = weatherDetails.weather[0].main.toLowerCase();
+        console.log(weatherCondition);
+        const weatherImages = {
+            rain: './images/rain.png',
+            clear: './images/clear.png',
+            clouds: './images/clouds.png',
+            mist: './images/mist.png',
+            snow: './images/snow.png',
+            thunderstorm: './images/thunderstorm-removebg-preview.png',
+            drizzle: './images/drizzle.png',
+            haze: './images/haze-removebg-preview.png',
+            smoke:'./images/smoke-removebg-preview.png',
+            fog:'./images/fog-removebg-preview.png'
+        };
+        const weatherImage = weatherImages[weatherCondition] || './images/clear.png';
+        // /weather image icons
+
+                // Assign image path based on condition
+                       
+            // 
+               result.innerHTML=` <div id="weatherbox">
+                <div id="wbox">
+                      <img src="${weatherImage}" alt="no image"></br></br>
+                    <p class="temparature">${weatherDetails.main.temp}<span>&deg;C</span></p>
+                    <p class="description">${weatherDetails.weather[0].main}</p>
+                </div>
+            </div>
+            <div id="weatherdetails">
+                <div id="humiditybox">
+                    <i class="fa-solid fa-water"></i>
+                    <div id="humdityinfo">
+                        <p><span>${weatherDetails.main.humidity}%</span></p>
+                        <p class="details">Humidity</p>
+                    </div>
+                </div>
+                <div id="windbox">
+                    <i class="fa-solid fa-wind"></i>
+                    <div id="windinfo">
+                        <p><span>${weatherDetails.wind.speed}km/hr</span></p>
+                        <p class="details">Wind Speed</p>
+                    </div>
+                    </div>
+            </div> `
+     
+             
+               
+               
+               
+
+             }
+             else{
+                alert("please enter valid location")
+             }
+        }
+        else{
+            alert("please enter the location")
+        }
+     }
+</script>
+
+</html>

@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+              url(./images/bg.jpeg) no-repeat center center/cover;
+
+    background-size: cover;
+    background-position: center;
+}
+#box{
+    background-color:rgba(42, 45, 42, 0.5);
+    width: 500px;
+    /* height: 550px; */
+    /* height: fit-content; */
+    border: solid 1px white;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    flex-direction: column;
+}
+
+#inputbox{
+  /* margin-top: 40px;
+  margin-left: 38px; */
+  
+}
+input{
+    border: solid white ;
+    outline: none;
+    border-radius: 20px;
+    width: 300px;
+    height: 40px;
+    padding: 5px;
+    text-align: center;
+    text-transform: capitalize;   
+    background: transparent;
+    color:white;
+   
+}
+button{
+    width: 70px;
+    height: 40px;
+    border: solid white;
+    border-radius: 20px;
+    background-color:transparent;
+}
+button i{
+    color: white;
+}
+input::placeholder {
+    color: white;
+    text-align: center;
+    text-transform: capitalize;      
+    background-color: transparent;   
+}
+#weatherbox{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    margin-top: 30px;
+    padding:10px;
+}
+#wbox{
+    width: 300px;
+    height: 250px;
+    /* background-color: brown; */
+    text-align: center;
+   
+}
+#wbox img{
+    width: 60%;
+}
+#wbox .temparature{
+    position: relative;
+    font-size: 64px;
+    font-weight: 700;
+}
+#wbox .temparature span {
+    position: absolute;
+    font-size: 30px;
+    margin-left: 4px;
+
+}
+#weatherdetails{
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-around;
+}
+#humiditybox ,#windbox{
+    display: flex;
+    width: 200px;
+    align-items: center;
+    /* background-color: black; */
+    justify-content: center;
+}
+#humiditybox i,#windbox i{
+    font-size: 56px;
+    margin-right: 20px;
+}
+#humdityinfo span , #windinfo span{
+    font-size: 28px;
+    font-weight: 600;
+}
+.details{
+    font-weight: 600;
+}
+#input{
+    padding: 0px 30px 0px 30px;
+
+}
